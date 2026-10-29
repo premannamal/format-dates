@@ -19,8 +19,16 @@ public class FormatDates {
 
         LocalDateTime today1 = LocalDateTime.now();
         DateTimeFormatter fmt =
-                DateTimeFormatter.ofPattern("EEEE, MMM dd, yyyy HH:mm:ss");
+                DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy HH:mm:ss");
         String formattedDate = today1.format(fmt);
         System.out.println(formattedDate);
+
+        ZonedDateTime gmtTime = ZonedDateTime.now(ZoneId.of("GMT"));
+
+        // 2. Define a readable format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMM dd, yyyy HH:mm");
+
+        // 3. Print the formatted string
+        System.out.println(gmtTime.format(formatter));
     }
 }
